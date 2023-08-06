@@ -1,0 +1,27 @@
+.dialogs{
+    display: grid;
+    grid-template-columns: 2fr 10fr;;
+}
+.dialog{
+    display: flex;
+    padding: 10px;
+    text-decoration: none;
+    color: yellow;
+
+   
+}
+.dialog a{
+    color: yellow;
+    text-decoration: none;
+}
+.dialogItems{
+    padding: 10px;
+
+}
+.dialogItems a:focus{
+color: red;
+text-decoration: none;
+}
+.message{
+    padding: 10px;
+}

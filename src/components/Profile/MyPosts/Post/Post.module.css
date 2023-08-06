@@ -1,0 +1,19 @@
+.item{
+    color: yellow; 
+    display: flex;
+}
+.item img {
+    
+    width: 40px;
+    height: 40px;
+    margin: 10px;
+    border-radius: 30px;
+   
+    border: 2px solid black;
+}
+.text{
+    margin-left: 100px;
+    margin-top: 20px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
