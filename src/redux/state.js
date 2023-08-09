@@ -15,6 +15,8 @@ let state = {
 
     },
 
+
+
     dialogPage: {
         dialogs: [
 
@@ -32,21 +34,26 @@ let state = {
         ]
     },
 
+
+
+
+
     sidebar: {
 
     }
 }
 
-export const addPost = (postMessage) => {
+export const addPost = () => {
     let newPost = {
         id: 5,
-        message: postMessage,
+        message: state.profilePage.newPostText,
         amountOfLikes: 'Likes '+Math.round(Math.random()*101)
     }
+   
     state.profilePage.posts.push(newPost)
-
-
+   
     rerenderEntireTree(state);
+    
 }
 
 export const updateNewPostText = (newText) => {
