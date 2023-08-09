@@ -1,6 +1,7 @@
 .dialogs{
     display: grid;
     grid-template-columns: 2fr 10fr;;
+    
 }
 .dialog{
     display: flex;
@@ -11,12 +12,15 @@
    
 }
 .dialog a{
+    
+    display: flex;
     color: yellow;
     text-decoration: none;
+    border: 2px solid white;
+   
 }
 .dialogItems{
-    padding: 10px;
-
+    padding-top: 10px;
 }
 .dialogItems a:focus{
 color: red;
@@ -24,4 +28,5 @@ text-decoration: none;
 }
 .message{
     padding: 10px;
+    display: flex;
 }
