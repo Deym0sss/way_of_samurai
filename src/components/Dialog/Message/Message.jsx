@@ -1,9 +1,29 @@
+import React from 'react';
 import styles from './../Dialog.module.css'
 
 const Message = (props) => {
 
-    return <div className={styles.message}> {props.text} </div>
+    let newMessageElement=React.createRef()
 
+    let sentMessage = () =>{
+    
+        let text = newMessageElement.current.value
+        alert(text)
+
+    }
+
+    return (
+        
+        
+            <div className={styles.message}>
+                <div>
+                <textarea defaultValue={props.text} ref={newMessageElement}></textarea> 
+                </div>
+                <button onClick={sentMessage}>Sent message</button> 
+            
+            </div>
+            
+       )
 }
 
 

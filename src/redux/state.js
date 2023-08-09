@@ -1,14 +1,17 @@
-
+let rerenderEntireTree = () => {
+    console.log(state)
+}
 let state = {
 
     profilePage: {
         posts: [
 
-            { message: 'Hello there', amountOfLikes: 'Likse 12' },
-            { message: 'Escalator', amountOfLikes: 'Likse 28' },
-            { message: 'Mayonez', amountOfLikes: 'Likse 20' },
-            { message: 'First post', amountOfLikes: 'Likse 100' }
-        ]
+            { message: 'Hello there', amountOfLikes: 'Likes 12' },
+            { message: 'Escalator', amountOfLikes: 'Likes 28' },
+            { message: 'Mayonez', amountOfLikes: 'Likes 20' },
+            { message: 'First post', amountOfLikes: 'Likes 100' }],
+
+        newPostText:'Example'
 
     },
 
@@ -29,9 +32,44 @@ let state = {
         ]
     },
 
-    sidebar:{
+    sidebar: {
 
     }
 }
+
+export const addPost = (postMessage) => {
+    let newPost = {
+        id: 5,
+        message: postMessage,
+        amountOfLikes: 'Likes '+Math.round(Math.random()*101)
+    }
+    state.profilePage.posts.push(newPost)
+
+
+    rerenderEntireTree(state);
+}
+
+export const updateNewPostText = (newText) => {
+  
+    state.profilePage.newPostText = newText
+    rerenderEntireTree(state);
+}
+
+
+
+
+
+
+
+
+
+
+export const subscribe = (observer) => {
+
+    rerenderEntireTree = (observer)
+
+}
+
+rerenderEntireTree(state)
 
 export default state
