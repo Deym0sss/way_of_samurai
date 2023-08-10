@@ -1,16 +1,33 @@
+import { sendMessageCreator, updateNewMessageBodyCreator } from '../../redux/state'
 import styles from './Dialog.module.css'
 import DialogItem from './DialogItem/DialogItem'
 import Message from './Message/Message'
 
 
+
 const Dialog = (props) => {
 
 
- let dialogsElement = props.dialogs.map(d => <DialogItem name={d.name} id={d.id} />)
+let dialogsElement = props.dialogs.map(d => <DialogItem name={d.name} id={d.id} />)
+let messagesElement = props.messages.map(m => <Message text={m.text} />)
+let newMessageBody = props.newMessageBody
 
-  
+let onSendMessageClick =()=>{
+    
+    props.store.dispatch(sendMessageCreator())
+}
 
-    let messagesElement = props.messages.map(m => <Message text={m.text} />)
+
+
+
+let onNewMassageChange=(e)=>{
+    let body = e.target.value
+    
+    props.store.dispatch(updateNewMessageBodyCreator(body))
+   
+
+}
+
 
     return (
 
@@ -26,7 +43,11 @@ const Dialog = (props) => {
 
             <div className={styles.messages}>
 
-                {messagesElement}
+                <div>{messagesElement}</div>
+                <div>
+                    <div><textarea value={newMessageBody}onChange={onNewMassageChange} placeholder='Enter massage'></textarea></div>
+                    <div><button onClick={onSendMessageClick}>Send</button></div>
+                </div>
 
             </div>
 
