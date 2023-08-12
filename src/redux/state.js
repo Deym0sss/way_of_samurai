@@ -47,6 +47,7 @@ let store = {
         this._state.profilePage = profileReduser(this_.state.profilePage, action)
         this._state.dialogPage = dialogReducer(this._state.dialogPage, action)
         this._state.sidebar = sidebarReducer(this._state.sidebar, action) 
+        
     }, 
 }
 
