@@ -1,3 +1,7 @@
+let initialState ={
+  
+}
+
 const sidebarReducer = (state, action) => {
 
 
