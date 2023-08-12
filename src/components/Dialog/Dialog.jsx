@@ -1,4 +1,4 @@
-import { sendMessageCreator, updateNewMessageBodyCreator } from '../../redux/state'
+import { sendMessageCreator, updateNewMessageBodyCreator } from '../../redux/dialog-reducer'
 import styles from './Dialog.module.css'
 import DialogItem from './DialogItem/DialogItem'
 import Message from './Message/Message'
