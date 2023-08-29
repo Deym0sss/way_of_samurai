@@ -1,10 +1,6 @@
 import React from 'react';
 import styles from './../Dialog.module.css'
-
 const Message = (props) => {
-
-  console.log(props.text)
-
     return (
         
             <div className={styles.message}>
@@ -13,6 +9,4 @@ const Message = (props) => {
             
        )
 }
-
-
 export default Message;
