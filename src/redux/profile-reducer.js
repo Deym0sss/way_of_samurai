@@ -3,13 +3,13 @@ const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
 
 let initialState =
 { posts: [
-
   { message: 'Hello there', amountOfLikes: 'Likes 12' },
   { message: 'Escalator', amountOfLikes: 'Likes 28' },
   { message: 'Mayonez', amountOfLikes: 'Likes 20' },
-  { message: 'First post', amountOfLikes: 'Likes 100' }],
-
-  newPostText: 'Example'}
+  { message: 'First post', amountOfLikes: 'Likes 100' }
+  ],
+  newPostText: 'Example'
+}
 
 const profileReduser= (state = initialState, action) =>
 {
