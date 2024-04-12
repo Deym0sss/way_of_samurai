@@ -1,17 +1,14 @@
-import MyPostsContainer from './MyPosts/MyPostsContainer';
-import styles from './Profile.module.css'
-import ProfileInfo from './ProfileInfo/ProfileInfo';
-import MyPostsContainer from './MyPosts/MyPostContainer';
+import MyPostsContainer from "./MyPosts/MyPostsContainer";
+import styles from "./Profile.module.css";
+import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 const Profile = (props) => {
+  return (
+    <div>
+      <ProfileInfo />
 
-    return (
-
-        <div>
-            <ProfileInfo />
-
-            <MyPostsContainer  />
-        </div>
-    )
-}
+      <MyPostsContainer />
+    </div>
+  );
+};
 export default Profile;
