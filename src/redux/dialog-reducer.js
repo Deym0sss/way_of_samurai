@@ -8,7 +8,11 @@ let initialState = {
     { id: "3", name: "Sasha" },
     { id: "4", name: "Vanya" },
   ],
-  messages: [{ text: "Hi" }, { text: "Darova" }, { text: "Bonjorno" }],
+  messages: [
+    { id: 1, text: "Hi" },
+    { id: 2, text: "Darova" },
+    { id: 3, text: "Bonjorno" },
+  ],
   newMessageBody: "",
 };
 const dialogReducer = (state = initialState, action) => {
@@ -22,10 +26,11 @@ const dialogReducer = (state = initialState, action) => {
 
     case SEND_MESSAGE: {
       let body = state.newMessageBody;
+      let messageId = state.messages.length + 1;
       return {
         ...state,
         newMessageBody: "",
-        messages: [...state.messages, { id: 6, text: body }],
+        messages: [...state.messages, { id: messageId, text: body }],
       };
     }
 

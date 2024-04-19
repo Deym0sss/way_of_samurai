@@ -6,7 +6,6 @@ import MyPosts from "./MyPosts";
 import { connect } from "react-redux";
 
 const mapToStateProps = (state) => {
-  console.log(state);
   return {
     posts: state.profilePage.posts,
     newPostText: state.profilePage.newPostText,
