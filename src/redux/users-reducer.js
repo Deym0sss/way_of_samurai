@@ -3,35 +3,7 @@ const FOLLOW = "FOLLOW";
 const SET_USERS = "SET_USERS";
 const randomAvatar = Math.random(100);
 let initialState = {
-  users: [
-    {
-      id: 1,
-      isFollowed: false,
-      avatarURL: `https://robohash.org/${randomAvatar}`,
-      fullName: "Kirill",
-      age: 21,
-      location: { country: "Ukraine", city: "Dnipro" },
-      status: "Dateing",
-    },
-    {
-      id: 2,
-      isFollowed: true,
-      avatarURL: `https://robohash.org/${randomAvatar + 1}`,
-      fullName: "Pasha",
-      age: 22,
-      location: { country: "Ukraine", city: "Dnipro" },
-      status: "Free",
-    },
-    {
-      id: 3,
-      isFollowed: true,
-      avatarURL: `https://robohash.org/${randomAvatar + 2}`,
-      fullName: "Amina",
-      age: 19,
-      location: { country: "Ukraine", city: "Dnipro" },
-      status: "Dateing",
-    },
-  ],
+  users: [],
 };
 const usersReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -40,7 +12,7 @@ const usersReducer = (state = initialState, action) => {
         ...state,
         users: state.users.map((user) => {
           if (user.id === action.userId) {
-            return { ...user, isFollowed: true };
+            return { ...user, followed: true };
           } else return user;
         }),
       };
@@ -51,7 +23,7 @@ const usersReducer = (state = initialState, action) => {
         ...state,
         users: state.users.map((user) => {
           if (user.id === action.userId) {
-            return { ...user, isFollowed: false };
+            return { ...user, followed: false };
           } else return user;
         }),
       };
@@ -59,7 +31,7 @@ const usersReducer = (state = initialState, action) => {
     case SET_USERS: {
       return {
         ...state,
-        users: [...state.users, ...action.users],
+        users: [...action.users],
       };
     }
 
