@@ -3,14 +3,17 @@ import styles from "./Users.module.css";
 import axios from "axios";
 import userDefault from "../../assets/images/image.png";
 export const Users = (props) => {
-  if (props.users.length === 0) {
-    axios
-      .get("https://social-network.samuraijs.com/api/1.0/users")
-      .then((response) => {
-        console.log(response.data);
-        props.setUsers(response.data.items);
-      });
-  }
+  const getUser = () => {
+    if (props.users.length === 0) {
+      axios
+        .get("https://social-network.samuraijs.com/api/1.0/users")
+        .then((response) => {
+          console.log(response.data);
+          props.setUsers(response.data.items);
+        });
+    }
+  };
+
   return (
     <div>
       {props.users.map((user) => {
@@ -58,6 +61,9 @@ export const Users = (props) => {
           </div>
         );
       })}
+      <button style={{ width: "100px", height: "20px" }} onClick={getUser}>
+        Get users
+      </button>
     </div>
   );
 };
