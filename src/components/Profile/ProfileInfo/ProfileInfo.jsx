@@ -8,7 +8,6 @@ const ProfileInfo = (props) => {
     return <Preloader />;
   }
   const entries = Object.entries(props.profile.contacts);
-  console.log(props.profile);
   return (
     <div>
       <div>
