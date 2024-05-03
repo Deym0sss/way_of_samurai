@@ -1,6 +1,5 @@
 import { connect } from "react-redux";
 import React from "react";
-import axios from "axios";
 import {
   follow,
   unfollow,
@@ -11,32 +10,27 @@ import {
 } from "../../redux/users-reducer";
 import { Users } from "./Users";
 import { Preloader } from "../common/Preloader/Preloader";
+import { userAPI } from "../../api/api";
 
 class UsersAPI extends React.Component {
   componentDidMount() {
     this.props.toggleIsFetching(true);
-    axios
-      .get(
-        `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`,
-        { withCredentials: true }
-      )
-      .then((response) => {
+    userAPI
+      .getUser(this.props.currentPage, this.props.pageSize)
+      .then((data) => {
         this.props.toggleIsFetching(false);
-        this.props.setUsers(response.data.items);
-        this.props.setTotalCount(response.data.totalCount);
+        this.props.setUsers(data.items);
+        this.props.setTotalCount(data.totalCount);
       });
   }
-  onSelectPage = (page) => {
+  onPageChanged = (pageNumber) => {
     this.props.toggleIsFetching(true);
-    this.props.setCurrentPage(page);
-    axios
-      .get(
-        `https://social-network.samuraijs.com/api/1.0/users?page=${page}&count=${this.props.pageSize}`,
-        { withCredentials: true }
-      )
-      .then((response) => {
+    this.props.setCurrentPage(pageNumber);
+    userAPI
+      .getUser(this.props.currentPage, this.props.pageSize)
+      .then((data) => {
         this.props.toggleIsFetching(false);
-        this.props.setUsers(response.data.items);
+        this.props.setUsers(data.items);
       });
   };
   render() {
@@ -48,7 +42,7 @@ class UsersAPI extends React.Component {
           <Users
             totalCount={this.props.totalCount}
             pageSize={this.props.pageSize}
-            onSelectPage={this.onSelectPage}
+            onSelectPage={this.onPageChanged}
             currentPage={this.props.currentPage}
             users={this.props.users}
             follow={this.props.follow}
