@@ -10,6 +10,7 @@ export const Users = (props) => {
   for (let i = 1; i <= pagesCount; i++) {
     pages.push(i);
   }
+
   return (
     <div>
       <div>
@@ -52,11 +53,16 @@ export const Users = (props) => {
             <div>
               {user.followed ? (
                 <button
+                  disabled={props.followingInProgress.some((userId) => {
+                    return userId === user.id;
+                  })}
                   onClick={() => {
+                    props.toggleIsFollowingInProgress(true, user.id);
                     followAPI.unfollow(user.id).then((data) => {
                       if (data.resultCode === 0) {
                         props.unfollow(user.id);
                       }
+                      props.toggleIsFollowingInProgress(false, user.id);
                     });
                   }}
                 >
@@ -64,11 +70,16 @@ export const Users = (props) => {
                 </button>
               ) : (
                 <button
+                  disabled={props.followingInProgress.some((userId) => {
+                    return userId === user.id;
+                  })}
                   onClick={() => {
+                    props.toggleIsFollowingInProgress(true, user.id);
                     followAPI.follow(user.id).then((data) => {
                       if (data.resultCode === 0) {
                         props.follow(user.id);
                       }
+                      props.toggleIsFollowingInProgress(false, user.id);
                     });
                   }}
                 >
