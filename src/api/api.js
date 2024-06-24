@@ -23,13 +23,13 @@ export const authAPI = {
   },
 };
 
-export const followAPI = {
-  follow(userId) {
+export const subscribeAPI = {
+  async follow(userId) {
     return instance.post(`follow/${userId}`).then((response) => {
       return response.data;
     });
   },
-  unfollow(userId) {
+  async unfollow(userId) {
     return instance.delete(`follow/${userId}`).then((response) => {
       return response.data;
     });

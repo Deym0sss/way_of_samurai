@@ -39,10 +39,10 @@ const dialogReducer = (state = initialState, action) => {
   }
 };
 
-export let sendMessageCreator = () => {
+export const sendMessageCreator = () => {
   return { type: SEND_MESSAGE };
 };
-export let updateNewMessageBodyCreator = (body) => {
+export const updateNewMessageBodyCreator = (body) => {
   return { type: UPDATE_NEW_MASSAGE_BODY, body: body };
 };
 export default dialogReducer;

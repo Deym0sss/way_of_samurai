@@ -1,5 +1,4 @@
 import { Preloader } from "../../common/Preloader/Preloader";
-import styles from "./ProfileInfo.module.css";
 import { BsFillHandThumbsDownFill } from "react-icons/bs";
 import { BsFillHandThumbsUpFill } from "react-icons/bs";
 

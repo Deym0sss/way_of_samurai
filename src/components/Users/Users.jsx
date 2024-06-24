@@ -2,8 +2,7 @@ import React from "react";
 import styles from "./Users.module.css";
 import userDefault from "../../assets/images/image.png";
 import { NavLink } from "react-router-dom";
-import { followAPI } from "../../api/api";
-
+// import { follow, unfollow } from "../../redux/users-reducer";
 export const Users = (props) => {
   let pagesCount = Math.ceil(props.totalCount / props.pageSize);
   let pages = [];
@@ -57,13 +56,7 @@ export const Users = (props) => {
                     return userId === user.id;
                   })}
                   onClick={() => {
-                    props.toggleIsFollowingInProgress(true, user.id);
-                    followAPI.unfollow(user.id).then((data) => {
-                      if (data.resultCode === 0) {
-                        props.unfollow(user.id);
-                      }
-                      props.toggleIsFollowingInProgress(false, user.id);
-                    });
+                    props.unfollow(user.id);
                   }}
                 >
                   unfollow
@@ -74,13 +67,7 @@ export const Users = (props) => {
                     return userId === user.id;
                   })}
                   onClick={() => {
-                    props.toggleIsFollowingInProgress(true, user.id);
-                    followAPI.follow(user.id).then((data) => {
-                      if (data.resultCode === 0) {
-                        props.follow(user.id);
-                      }
-                      props.toggleIsFollowingInProgress(false, user.id);
-                    });
+                    props.follow(user.id);
                   }}
                 >
                   follow
