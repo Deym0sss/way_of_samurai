@@ -2,8 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import Profile from "./Profile";
 import { getUserProfile } from "../../redux/profile-reducer";
-import { Navigate, useParams } from "react-router-dom";
-import { WithAuthRedirect } from "../../hoc/WithAuthRedirect";
+import { useParams } from "react-router-dom";
 export function withRouter(Children) {
   return (props) => {
     const match = { params: useParams() };
@@ -23,8 +22,6 @@ class ProfileContainer extends React.Component {
   }
 }
 
-const AuthRedirectComponent = WithAuthRedirect(ProfileContainer);
-
 const mapToStateProps = (state) => {
   return {
     posts: state.profilePage.posts,
@@ -32,7 +29,7 @@ const mapToStateProps = (state) => {
   };
 };
 
-const WithUrlDataComponent = withRouter(AuthRedirectComponent);
+const WithUrlDataComponent = withRouter(ProfileContainer);
 
 export default connect(mapToStateProps, { getUserProfile })(
   WithUrlDataComponent

@@ -10,10 +10,10 @@ const ProfileInfo = (props) => {
   return (
     <div>
       <div>
-        <img
+        {/* <img
           src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"
           alt="Nothing"
-        />
+        /> */}
       </div>
       <div style={{ display: "flex" }}>
         <img src={props.profile.photos.large} alt="Nothing" />
