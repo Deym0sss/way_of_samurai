@@ -17,13 +17,13 @@ export class ProfileStatus extends React.Component {
           <div>
             <input
               autoFocus={true}
-              onBlur={this.deactivateEditMode.bind(this)}
+              onBlur={this.deactivateEditMode}
               value={this.props.status}
             ></input>
           </div>
         ) : (
           <div>
-            <span onDoubleClick={this.activateEditMode.bind(this)}>
+            <span onDoubleClick={this.activateEditMode}>
               {this.props.status}
             </span>
           </div>
