@@ -1,6 +1,7 @@
 import { Preloader } from "../../common/Preloader/Preloader";
 import { BsFillHandThumbsDownFill } from "react-icons/bs";
 import { BsFillHandThumbsUpFill } from "react-icons/bs";
+import { ProfileStatus } from "./ProfileStatus";
 
 const ProfileInfo = (props) => {
   if (!props.profile) {
@@ -9,14 +10,14 @@ const ProfileInfo = (props) => {
   const entries = Object.entries(props.profile.contacts);
   return (
     <div>
-      <div>
-        {/* <img
-          src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"
-          alt="Nothing"
-        /> */}
-      </div>
       <div style={{ display: "flex" }}>
-        <img src={props.profile.photos.large} alt="Nothing" />
+        <div style={{ margin: 10 }}>
+          <div>
+            <img src={props.profile.photos.large} alt="Nothing" />
+          </div>
+          <ProfileStatus status={"Hello there"} />
+        </div>
+
         <div style={{ marginLeft: "30px" }}>
           <div
             style={{
