@@ -2,6 +2,7 @@ import { Preloader } from "../../common/Preloader/Preloader";
 import { BsFillHandThumbsDownFill } from "react-icons/bs";
 import { BsFillHandThumbsUpFill } from "react-icons/bs";
 import { ProfileStatus } from "./ProfileStatus";
+import image from "../../../assets/images/image.png";
 
 const ProfileInfo = (props) => {
   if (!props.profile) {
@@ -13,9 +14,16 @@ const ProfileInfo = (props) => {
       <div style={{ display: "flex" }}>
         <div style={{ margin: 10 }}>
           <div>
-            <img src={props.profile.photos.large} alt="Nothing" />
+            {props.profile.photos.large ? (
+              <img src={props.profile.photos.large} alt="Nothing" />
+            ) : (
+              <img src={image} alt="nothing" />
+            )}
           </div>
-          <ProfileStatus status={"Hello there"} />
+          <ProfileStatus
+            status={props.status}
+            updateStatus={props.updateStatus}
+          />
         </div>
 
         <div style={{ marginLeft: "30px" }}>
